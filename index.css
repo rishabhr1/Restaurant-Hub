@@ -1,3 +1,66 @@
-#heading{
-    color: red;
+#header {
+    display: flex;
+    justify-content: space-between; /* it will maintain uniform space between content within header */
+}
+#image > img {
+    width: 150px;
+}
+#header > ul {
+    font-size: 20px;
+    display: flex;
+    list-style-type: none; /* remove the list items dot */
+}
+#header > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+.res-card {
+    padding: 5px;
+    margin: 5px;
+    width: 150px;
+    border: 1px solid white;
+}
+.res-card:hover {
+    cursor: pointer;
+    border-color: black;
+}
+.search {
+    padding: 10px;
+}
+.res-logo {
+    width: 100%;
+}
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    margin: 10px;
+    cursor: pointer;
+}
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card {
+    margin: 20px;
+    width: 150px;
+    height: 400px;
+    background-color: #f0f0f0;
+    border: 1px solid white;
+}
+.login {
+    height: 30px;
+    width: 70px;
+    cursor: pointer;
+}
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 25%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.filter {
+    display: flex;
 }

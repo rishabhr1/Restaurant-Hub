@@ -6,38 +6,41 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
     const [btnName, setBtnName] = useState("login");
 
-    const onlineStatus=useOnlineStatus();
+    const onlineStatus = useOnlineStatus();
 
     return (
-        <div id="header">
-            <div id="image">
-                <img src={LOGO_URL} alt="comp-logo" />
+        <div className="flex justify-between bg-pink-100 shadow-lg">
+            <div>
+                <img className="w-36" src={LOGO_URL} alt="comp-logo" />
             </div>
-            <ul>
-                <li>
-                    Online Status: {onlineStatus ? "🟢" : "🔴"}
-                </li>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about">About Us</Link>
-                </li>
-                <li>
-                    <Link to="/contact">Contact Us</Link>
-                </li>
-                <li>Cart</li>
-                <button
-                    className="login vertical-center"
-                    onClick={() => {
-                        btnName === "login"
-                            ? setBtnName("logout")
-                            : setBtnName("login");
-                    }}
-                >
-                    {btnName}
-                </button>
-            </ul>
+            <div className="flex items-center">
+                <ul className="flex">
+                    <li className="px-3">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
+                    <li className="px-3">
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li className="px-3">
+                        <Link to="/about">About Us</Link>
+                    </li>
+                    <li className="px-3">
+                        <Link to="/contact">Contact Us</Link>
+                    </li>
+                    <li className="px-3">
+                        <Link to="/grocery">Grocery</Link>
+                    </li>
+                    <li className="px-3">Cart</li>
+                    <button
+                        className="px-3"
+                        onClick={() => {
+                            btnName === "login"
+                                ? setBtnName("logout")
+                                : setBtnName("login");
+                        }}
+                    >
+                        {btnName}
+                    </button>
+                </ul>
+            </div>
         </div>
     );
 };

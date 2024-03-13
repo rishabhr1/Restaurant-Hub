@@ -37,21 +37,23 @@ const BodyComp = () => {
     return listOfRest.length === 0 ? (
         <Shimmer />
     ) : (
-        <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value);}} />
-                    <button onClick={()=>{
+        <div>
+            <div className="flex">
+                <div className="p-4">
+                    <input type="text" className="border border-solid rounded-md" value={searchText} onChange={(e)=>{setSearchText(e.target.value);}} />
+                    <button className=" bg-pink-100 mx-2 px-4 rounded-md" onClick={()=>{
                         // filter the restaurant cards and update the UI
                         const filteredrest = listOfRest.filter(rest => rest.card.card.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredRest(filteredrest);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={filterList}>
+                <div className="p-4">
+                <button className="px-4 mx-2 bg-gray-100 rounded-md" onClick={filterList}>
                     Top Rated Restaurants
                 </button>
+                </div>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {filteredRest.map((restaurant) => (
                     <Link key={parseInt(restaurant.info.id)} to={"/restaurants/"+restaurant.info.id}><RestaurantCard
                         resData={restaurant}

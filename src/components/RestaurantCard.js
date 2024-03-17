@@ -18,4 +18,17 @@ const RestaurantCard = (props) => {
         </div>
     );
 };
+
+//Higher Order Component
+export const withDiscount = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-black text-white mx-6 my-2 rounded-sm px-2">{props.resData.info.aggregatedDiscountInfoV3.header}</label>
+                <RestaurantCard {...props}/>
+            </div>
+        )
+    }
+};
+
 export default RestaurantCard;

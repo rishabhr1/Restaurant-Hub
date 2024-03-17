@@ -1,6 +1,9 @@
 import Shimmer from "./shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantItem from "./RestaurantItem";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
     // const [resInfo, setResInfo] = useState(null);
@@ -8,6 +11,8 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
 
     const resInfo = useRestaurantMenu(resId);        //to fetch data using custom hooks
+
+    const [showIndex, setShowIndex] = useState(0);
 
     // useEffect(() => {         //to fetch data using useEffect and fetch function
     //     fetchMenu();
@@ -31,47 +36,13 @@ const RestaurantMenu = () => {
 
     return (
         <div className="menu">
-            <h1>{name}</h1>
-            <p>
+            <h1 className="text-center font-bold my-4 text-2xl">{name}</h1>
+            <p className="text-center font-bold text-lg mb-4 text-slate-400">
                 {cuisines.join(", ")} - {costForTwoMessage}
             </p>
-            <h3>Menu</h3>
-            <ul>
+            <ul className="text-center mx-auto">
                 {categories.map((cat, index) => (
-                    <li key={index}>
-                        {cat.card.card.title}
-                        {cat?.card?.card?.itemCards?.length > 0 && (
-                            <ul>
-                                {cat?.card?.card?.itemCards?.map((item) => (
-                                    <li key={parseInt(item.card.info.id)}>
-                                        {item.card.info.name} -{" "}
-                                        {item.card.info.price / 100}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                        {cat?.card?.card?.categories?.length > 0 && (
-                            <ul>
-                                {cat.card.card.categories.map((food, index) => (
-                                    <li key={index}>
-                                        {food.title}
-                                        <ul>
-                                            {food.itemCards.map((i) => (
-                                                <li
-                                                    key={parseInt(
-                                                        i.card.info.id
-                                                    )}
-                                                >
-                                                    {i.card.info.name} -{" "}
-                                                    {i.card.info.price / 100}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </li>
+                    <RestaurantCategory cat={cat} index={index} showItems={index===showIndex?true:false} setShowIndex={()=>setShowIndex(index)} />
                 ))}
             </ul>
         </div>

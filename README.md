@@ -48,3 +48,25 @@ import (Comp1) from path;
 - Create Slice (CartSlice)
 - Dispatch(action)
 - Read data using Selector
+
+# Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing or e2e testing
+
+# Setting up testing in our app
+- Install React Testing Library
+- Installed jest
+- Installed Babel dependencies as mentioned in jest doc
+- Configured Babel as mentioned in jest doc
+- Configured parcel config file to disable default babel transpilation(in parcel docs search jest and selection the content in javascript section and create .parcelrc to copy the corresponding code of docs in it)
+- Jest configuration
+    - typescript - no
+    - test environment - jsdom
+    - coverage report -yes
+    - provider - babel
+    - clear mock call - yes
+- run this commnad - npm install --save-dev jest-environment-jsdom
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- Install @testing-library/jest-dom

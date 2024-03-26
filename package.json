@@ -4,8 +4,8 @@
     "description": "This is Namaste React",
     "scripts": {
         "start": "parcel index.html",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
+        "predeploy": "npm run dist",
+        "deploy": "gh-pages -d dist",
         "build": "parcel build index.html",
         "test": "jest"
     },
